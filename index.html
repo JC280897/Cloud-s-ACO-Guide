@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="JC's ACO member guide for CSV submissions, profile jigging, opt-ins and PAS invoices." />
+  <meta property="og:title" content="JC's ACO Member Guide" />
+  <meta property="og:description" content="A clean member guide for CSV formats, opt-ins, jigging and invoices." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#7c3aed" />
+  <title>JC's ACO | Member Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070914; --bg2:#0b1020; --panel:#0f172a; --panel2:#111c33; --glass:rgba(15,23,42,.72);
+      --line:rgba(148,163,184,.18); --line2:rgba(148,163,184,.34); --text:#f8fafc; --muted:#a7b1c2;
+      --subtle:#68758a; --brand:#8b5cf6; --brand2:#22d3ee; --good:#22c55e; --warn:#f59e0b; --bad:#ef4444;
+      --radius:20px; --radius2:28px; --shadow:0 30px 90px rgba(0,0,0,.42); --mono:'JetBrains Mono',monospace; --sans:'Inter',system-ui,sans-serif;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(circle at 20% 0%,rgba(124,58,237,.22),transparent 34%),radial-gradient(circle at 80% 10%,rgba(34,211,238,.16),transparent 30%),linear-gradient(180deg,var(--bg),#050712 75%);color:var(--text);font:15px/1.7 var(--sans);overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:46px 46px;mask-image:linear-gradient(to bottom,black,transparent 70%);pointer-events:none;z-index:-1}
+    a{color:inherit}.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:100;background:var(--brand);padding:10px 14px;border-radius:12px}
+    .wrap{width:min(1180px,calc(100% - 32px));margin:auto}.top{position:sticky;top:0;z-index:50;background:rgba(7,9,20,.7);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .topin{height:72px;display:flex;align-items:center;gap:18px}.logo{display:flex;align-items:center;gap:12px;text-decoration:none}.mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;box-shadow:0 16px 40px rgba(124,58,237,.35);font-weight:900}.brand strong{display:block;font-size:14px}.brand span{display:block;font:11px/1.2 var(--mono);color:var(--muted)}
+    .nav{margin-left:auto;display:flex;align-items:center;gap:4px}.nav a{padding:9px 11px;text-decoration:none;color:var(--muted);border-radius:12px;font-weight:600;font-size:13px}.nav a:hover,.nav a.active{background:rgba(255,255,255,.07);color:var(--text)}
+    .actions{display:flex;gap:10px;margin-left:10px}.btn{border:1px solid var(--line2);background:rgba(255,255,255,.06);color:var(--text);border-radius:14px;padding:10px 14px;text-decoration:none;font-weight:800;font-size:13px;display:inline-flex;gap:8px;align-items:center;cursor:pointer}.btn.primary{border:0;background:linear-gradient(135deg,var(--brand),#5b21b6);box-shadow:0 16px 40px rgba(124,58,237,.24)}.btn:hover{transform:translateY(-1px)}
+    .menu{display:none;margin-left:auto;background:transparent;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:9px 11px}
+    .hero{padding:74px 0 42px}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.05);padding:8px 12px;border-radius:999px;color:var(--brand2);font:12px var(--mono);margin-bottom:18px}
+    h1{font-size:clamp(40px,7vw,76px);line-height:.96;letter-spacing:-.07em;margin:0 0 22px;font-weight:900}.grad{background:linear-gradient(135deg,#fff,var(--brand2) 45%,var(--brand));-webkit-background-clip:text;color:transparent}.lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 28px}.hero-card{border:1px solid var(--line);background:var(--glass);border-radius:var(--radius2);box-shadow:var(--shadow);padding:24px;position:relative;overflow:hidden}.hero-card::before{content:"";position:absolute;inset:-2px;background:radial-gradient(circle at 80% 0%,rgba(34,211,238,.18),transparent 42%);pointer-events:none}.statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;position:relative}.stat{padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.045)}.stat b{display:block;font:24px var(--mono);margin-bottom:4px}.stat span{color:var(--muted);font-size:13px}.tags{display:flex;flex-wrap:wrap;gap:10px}.tag{border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:999px;padding:8px 12px;color:var(--muted);font:12px var(--mono)}
+    .layout{display:grid;grid-template-columns:280px 1fr;gap:28px;align-items:start;padding-bottom:90px}.side{position:sticky;top:96px;border:1px solid var(--line);background:rgba(15,23,42,.68);backdrop-filter:blur(18px);border-radius:22px;padding:14px;max-height:calc(100vh - 120px);overflow:auto}.side label{display:block;color:var(--subtle);font:11px var(--mono);text-transform:uppercase;letter-spacing:.12em;margin:8px 10px}.side a{display:flex;gap:10px;text-decoration:none;color:var(--muted);padding:9px 10px;border-radius:12px;font-weight:700;font-size:13px}.side a:hover,.side a.active{background:rgba(124,58,237,.14);color:var(--text)}.search{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--text);border-radius:14px;padding:12px 13px;margin-bottom:12px;outline:none}
+    main{min-width:0}.section{border:1px solid var(--line);background:rgba(15,23,42,.62);backdrop-filter:blur(18px);border-radius:var(--radius2);padding:30px;margin-bottom:22px;box-shadow:0 20px 80px rgba(0,0,0,.18)}.section h2{font-size:28px;letter-spacing:-.03em;margin:0 0 12px}.section h3{margin:26px 0 10px;font-size:17px}.section p{color:var(--muted);margin:0 0 14px}.section code{font-family:var(--mono);background:rgba(148,163,184,.12);border:1px solid var(--line);border-radius:8px;padding:2px 7px;color:#e0f2fe}.mini{font:12px var(--mono);color:var(--subtle);margin-bottom:10px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.grid.two{grid-template-columns:repeat(2,1fr)}.card{border:1px solid var(--line);background:rgba(255,255,255,.045);border-radius:18px;padding:18px}.card h4{margin:0 0 8px;font-size:15px}.card p,.card li{font-size:13px;color:var(--muted)}.accent{border-top:3px solid var(--brand)}.cyan{border-top:3px solid var(--brand2)}.amber{border-top:3px solid var(--warn)}.green{border-top:3px solid var(--good)}.red{border-top:3px solid var(--bad)}
+    .callout{display:flex;gap:13px;border:1px solid var(--line);border-left:4px solid var(--brand2);background:rgba(34,211,238,.08);border-radius:18px;padding:16px;margin:18px 0}.callout strong{display:block;margin-bottom:2px}.callout p{margin:0;font-size:13px}.callout.warn{border-left-color:var(--warn);background:rgba(245,158,11,.09)}.callout.bad{border-left-color:var(--bad);background:rgba(239,68,68,.09)}.callout.good{border-left-color:var(--good);background:rgba(34,197,94,.09)}
+    .timeline{counter-reset:step;display:grid;gap:12px;margin-top:18px}.step{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start}.step::before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--brand),#4f46e5);font:800 14px var(--mono);box-shadow:0 14px 34px rgba(124,58,237,.22)}.step b{display:block;margin-bottom:2px}.step span{color:var(--muted);font-size:13px}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tab{border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--muted);padding:10px 14px;border-radius:14px;font-weight:900;cursor:pointer}.tab.active{background:linear-gradient(135deg,rgba(124,58,237,.35),rgba(34,211,238,.16));color:var(--text);border-color:rgba(139,92,246,.55)}.panel{display:none}.panel.active{display:block}
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;margin:14px 0}table{width:100%;border-collapse:collapse;min-width:680px}th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--subtle);background:rgba(255,255,255,.045)}td{color:var(--muted);font-size:13px}td:first-child{font-family:var(--mono);color:var(--text);font-size:12px}tr:last-child td{border-bottom:0}
+    .code{position:relative;border:1px solid var(--line);border-radius:18px;background:#070b16;padding:18px;overflow:auto;font:12px/1.8 var(--mono);color:#cbd5e1}.code .bad{color:#fca5a5}.code .ok{color:#86efac}.code .note{color:#64748b}
+    .demo{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#0b1020;margin-top:14px}.demo-head{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.05);border-bottom:1px solid var(--line);padding:13px 16px;font-weight:900}.demo-body{padding:18px}.demo-title{font-weight:900;margin-bottom:8px}.mock{border:1px solid var(--line);border-radius:16px;background:#111827;padding:14px;color:#dbeafe}.mock .bot{border-left:4px solid #5865f2;background:rgba(88,101,242,.12);padding:12px;border-radius:10px;margin:8px 0}.mock .success{border-left-color:var(--good);background:rgba(34,197,94,.1)}.demo-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding:12px 16px}.demo-foot button{border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--text);border-radius:12px;padding:9px 12px;font-weight:800;cursor:pointer}.dots{display:flex;gap:6px}.dot{width:7px;height:7px;border-radius:99px;background:var(--line2)}.dot.active{width:20px;background:var(--brand2)}
+    details{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.04);margin:10px 0;overflow:hidden}summary{cursor:pointer;padding:15px 16px;font-weight:900;list-style:none;display:flex;justify-content:space-between;gap:12px}summary::after{content:"+";color:var(--brand2)}details[open] summary::after{content:"−"}.answer{padding:0 16px 16px;color:var(--muted);font-size:14px}
+    .footer{padding:28px 0 70px;color:var(--subtle);font-size:13px}.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand2));z-index:80;width:0}.hidden{display:none!important}
+    @media(max-width:980px){.hero-grid,.layout{grid-template-columns:1fr}.side{position:relative;top:0;max-height:none}.nav,.actions{display:none}.menu{display:block}.top.open .nav{display:flex;position:absolute;left:16px;right:16px;top:78px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:10px;flex-direction:column;align-items:stretch}.grid,.grid.two{grid-template-columns:1fr}.hero{padding-top:48px}.section{padding:22px}.topin{position:relative}h1{font-size:44px}}
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="top" id="top">
+    <div class="wrap topin">
+      <a href="#" class="logo" aria-label="JC's ACO guide home"><span class="mark">JC</span><span class="brand"><strong>JC's ACO</strong><span>member guide</span></span></a>
+      <nav class="nav" id="topnav"><a href="#start">Start</a><a href="#formats">CSV</a><a href="#submit">Submit</a><a href="#jigging">Jigging</a><a href="#invoices">Invoices</a><a href="#faq">FAQ</a></nav>
+      <div class="actions"><a class="btn" href="#formats">View Formats</a><a class="btn primary" href="#submit">Start Guide</a></div>
+      <button class="menu" onclick="document.getElementById('top').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">📘 Official-style documentation · GitHub Pages ready</div>
+        <h1>JC's <span class="grad">ACO</span><br>Member Guide</h1>
+        <p class="lead">A polished, easy-to-share guide for CSV submissions, profile formats, jigging workflows, opt-ins and PAS invoices.</p>
+        <div class="tags"><span class="tag">🕵️ Hidden CSV</span><span class="tag">⚡ Cyber CSV</span><span class="tag">🌟 Stellar CSV</span><span class="tag">🔀 Jig Bot</span><span class="tag">💳 PAS</span></div>
+      </div>
+      <aside class="hero-card" aria-label="Guide summary">
+        <div class="statgrid">
+          <div class="stat"><b>3</b><span>CSV formats explained</span></div>
+          <div class="stat"><b>10</b><span>personal CSV slots</span></div>
+          <div class="stat"><b>YY</b><span>Stellar card year</span></div>
+          <div class="stat"><b>GB</b><span>Hidden / Stellar country</span></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="wrap layout">
+    <aside class="side" aria-label="Page navigation">
+      <input class="search" id="search" placeholder="Search the guide…" aria-label="Search guide">
+      <label>Guide</label>
+      <a href="#start">🚀 Getting Started</a><a href="#glossary">📖 Glossary</a><a href="#csv">📄 What is a CSV?</a><a href="#formats">🗂️ CSV Formats</a><a href="#mobile">📱 Mobile Setup</a><a href="#submit">⬆️ Submitting</a><a href="#jigging">🔀 Jigging</a><a href="#license">🔑 License</a><a href="#invoices">💳 Invoices</a><a href="#faq">❓ FAQ</a>
+    </aside>
+
+    <main id="content">
+      <section class="section searchable" id="start">
+        <div class="mini"># getting-started</div><h2>🚀 Getting Started</h2>
+        <p><strong>JC's ACO</strong> is an Auto Checkout Operation for limited-release products such as sneakers, Pokémon cards and fashion drops. Members provide correctly formatted profile CSV files, then staff run the bot for selected drops.</p>
+        <div class="timeline">
+          <div class="step"><div><b>Staff announce a drop</b><span>The server post shows the product, deadline and required CSV format.</span></div></div>
+          <div class="step"><div><b>Upload your CSV via DM</b><span>The submission bot validates your file and stores it in one of your slots.</span></div></div>
+          <div class="step"><div><b>Opt in</b><span>Click the drop button. Your saved CSV is copied to staff automatically.</span></div></div>
+          <div class="step"><div><b>Bot runs</b><span>Staff load your profiles and attempt checkout when the drop goes live.</span></div></div>
+          <div class="step"><div><b>Invoice and payment</b><span>If successful, you receive a PAS invoice with payment details.</span></div></div>
+        </div>
+        <div class="callout good"><span>✅</span><div><strong>No personal bot required</strong><p>Members only need correctly completed CSV files. JC's ACO handles the bot setup and running process.</p></div></div>
+      </section>
+
+      <section class="section searchable" id="glossary">
+        <div class="mini"># key-terms</div><h2>📖 Glossary</h2>
+        <div class="grid">
+          <div class="card"><h4>ACO</h4><p>Auto Checkout Operation — bot-powered purchase attempts.</p></div><div class="card"><h4>Profile</h4><p>One CSV row containing name, address, email and payment fields.</p></div><div class="card"><h4>CSV</h4><p>Comma-Separated Values file. Bots read this like a spreadsheet.</p></div><div class="card"><h4>Jig</h4><p>Small profile variations so rows appear more unique.</p></div><div class="card"><h4>PAS</h4><p>Profit After Sale — the percentage owed after a successful checkout.</p></div><div class="card"><h4>Opt In</h4><p>Registering your saved CSV for a specific drop.</p></div>
+        </div>
+      </section>
+
+      <section class="section searchable" id="csv">
+        <div class="mini"># csv-basics</div><h2>📄 What is a CSV?</h2>
+        <p>A CSV is a spreadsheet saved as plain text. Each row is one checkout profile. Fill in the correct template, save as <code>.csv</code>, and upload it in DMs to the official submission bot.</p>
+        <div class="callout bad"><span>⚠️</span><div><strong>Security warning</strong><p>Never post CSVs in public channels and never upload files containing real card data to a public GitHub repository.</p></div></div>
+        <div class="grid">
+          <div class="card accent"><h4>🕵️ Hidden</h4><p>camelCase columns · Country <code>GB</code> · Expiry year <code>YYYY</code></p></div>
+          <div class="card cyan"><h4>⚡ Cyber</h4><p>Spaced column names · Country <code>United Kingdom</code> · Expiry year <code>YYYY</code></p></div>
+          <div class="card amber"><h4>🌟 Stellar</h4><p>UPPER_CASE columns · Country <code>GB</code> · Expiry year <code>YY</code></p></div>
+        </div>
+      </section>
+
+      <section class="section searchable" id="formats">
+        <div class="mini"># csv-format-guides</div><h2>🗂️ CSV Format Guides</h2>
+        <p>Choose the format required for the drop. Do not rename, remove or reorder template columns.</p>
+        <div class="tabs"><button class="tab active" data-tab="hidden">🕵️ Hidden</button><button class="tab" data-tab="cyber">⚡ Cyber</button><button class="tab" data-tab="stellar">🌟 Stellar</button></div>
+        <div class="panel active" id="panel-hidden">
+          <div class="callout"><span>🕵️</span><div><strong>Hidden rules</strong><p>Country must be <code>GB</code>. Card year must be four digits like <code>2027</code>. Month must include a leading zero.</p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Column</th><th>Enter</th><th>Example</th></tr></thead><tbody>
+            <tr><td>profileName</td><td>Unique profile name</td><td>MemberOne1</td></tr><tr><td>billingEmail</td><td>Valid unique email</td><td>demo1@example.com</td></tr><tr><td>billingPhone / shippingPhone</td><td>Minimum 7 digits</td><td>07700900000</td></tr><tr><td>billingCountry / shippingCountry</td><td>Exactly <code>GB</code></td><td>GB</td></tr><tr><td>billingLine1 / shippingLine1</td><td>House number and street</td><td>10 Example Road</td></tr><tr><td>billingPostCode / shippingPostCode</td><td>Full UK postcode</td><td>EC1A 1BB</td></tr><tr><td>cardType</td><td>Exact capitalisation</td><td>Visa / MasterCard / Amex</td></tr><tr><td>cardNumber</td><td>13–19 digits, no spaces</td><td>4000000000000000</td></tr><tr><td>cardExpMonth</td><td>2 digits</td><td>06</td></tr><tr><td>cardExpYear</td><td>4 digits</td><td>2027</td></tr><tr><td>cardCvv</td><td>3 digits, Amex 4</td><td>000</td></tr>
+          </tbody></table></div>
+          <pre class="code"><span class="bad">✗ billingCountry: "United Kingdom"</span> <span class="note">// must be "GB"</span>
+<span class="bad">✗ cardExpYear: "27"</span> <span class="note">// must be "2027"</span>
+<span class="ok">✓ billingCountry: "GB"</span>
+<span class="ok">✓ cardExpYear: "2027"</span></pre>
+        </div>
+        <div class="panel" id="panel-cyber">
+          <div class="callout"><span>⚡</span><div><strong>Cyber rules</strong><p>Country must be <code>United Kingdom</code>. Phone should be local format only. Delivery Address 2 should not be blank.</p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Column</th><th>Enter</th><th>Example</th></tr></thead><tbody>
+            <tr><td>Profile Name</td><td>Unique profile name</td><td>MemberOne1</td></tr><tr><td>Email</td><td>Valid unique email</td><td>demo1@example.com</td></tr><tr><td>Phone</td><td>Local format, no + country code</td><td>07700900000</td></tr><tr><td>Delivery Address 1</td><td>House number and street</td><td>10 Example Road</td></tr><tr><td>Delivery Address 2</td><td>Required</td><td>Flat A</td></tr><tr><td>Delivery City</td><td>Town or city</td><td>London</td></tr><tr><td>Delivery ZIP</td><td>Postcode</td><td>EC1A 1BB</td></tr><tr><td>Delivery Country</td><td>Exactly <code>United Kingdom</code></td><td>United Kingdom</td></tr><tr><td>Delivery State</td><td>County or region</td><td>Greater London</td></tr><tr><td>Card Exp Month</td><td>2 digits</td><td>06</td></tr><tr><td>Card Exp Year</td><td>4 digits</td><td>2027</td></tr><tr><td>Different Billing</td><td>FALSE if same as delivery</td><td>FALSE</td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="panel" id="panel-stellar">
+          <div class="callout bad"><span>🚨</span><div><strong>Stellar is different</strong><p><code>CARD_YEAR</code> must be two digits, for example <code>27</code>, not <code>2027</code>.</p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Column</th><th>Enter</th><th>Example</th></tr></thead><tbody>
+            <tr><td>PROFILE_NAME</td><td>Unique profile name</td><td>MemberOne1</td></tr><tr><td>EMAIL</td><td>Valid unique email</td><td>demo1@example.com</td></tr><tr><td>PHONE</td><td>Full format accepted</td><td>07700900000</td></tr><tr><td>SHIPPING_ADDRESS</td><td>House number and street</td><td>10 Example Road</td></tr><tr><td>SHIPPING_CITY</td><td>Town or city</td><td>London</td></tr><tr><td>SHIPPING_ZIP</td><td>Postcode</td><td>EC1A 1BB</td></tr><tr><td>SHIPPING_COUNTRY</td><td>Exactly <code>GB</code></td><td>GB</td></tr><tr><td>BILLING_SAME_AS_SHIPPING</td><td>TRUE if billing matches</td><td>TRUE</td></tr><tr><td>CARD_TYPE</td><td>Exact capitalisation</td><td>Visa</td></tr><tr><td>CARD_NUMBER</td><td>Digits only</td><td>4000000000000000</td></tr><tr><td>CARD_MONTH</td><td>2 digits</td><td>06</td></tr><tr><td>CARD_YEAR</td><td>2 digits only</td><td>27</td></tr><tr><td>CARD_CVV</td><td>3 digits, Amex 4</td><td>000</td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section class="section searchable" id="mobile">
+        <div class="mini"># no-pc-required</div><h2>📱 Mobile Submission</h2>
+        <p>Members can fill CSVs from a phone using a CSV editor app. Always export as a real <code>.csv</code> file before uploading to the bot.</p>
+        <div class="grid two"><div class="card"><h4>🍎 iOS</h4><p>Use a trusted CSV editor from the App Store and export the final file as CSV.</p></div><div class="card"><h4>🤖 Android</h4><p>Use a trusted CSV editor from Google Play and check column headers before uploading.</p></div></div>
+      </section>
+
+      <section class="section searchable" id="submit">
+        <div class="mini"># upload-and-opt-in</div><h2>⬆️ Submitting & Opting In</h2>
+        <p>CSV uploads should happen in DMs with the official submission bot only. Server uploads should be removed automatically.</p>
+        <div class="demo" data-demo="upload"><div class="demo-head"><span>Interactive demo — CSV upload</span><span class="demo-count">1 / 4</span></div><div class="demo-body"></div><div class="demo-foot"><button data-prev>← Prev</button><div class="dots"></div><button data-next>Next →</button></div></div>
+        <div class="demo" data-demo="optin"><div class="demo-head"><span>Interactive demo — Opt in</span><span class="demo-count">1 / 3</span></div><div class="demo-body"></div><div class="demo-foot"><button data-prev>← Prev</button><div class="dots"></div><button data-next>Next →</button></div></div>
+      </section>
+
+      <section class="section searchable" id="jigging">
+        <div class="mini"># profile-jigging</div><h2>🔀 What is Jigging?</h2>
+        <p>Jigging creates small variations in each profile row so the data looks more unique. Names and address formatting may change; postcodes, emails and card details should not be changed.</p>
+        <div class="grid"><div class="card green"><h4>🟢 Light</h4><p>Minimal changes for lower-security sites.</p></div><div class="card amber"><h4>🟡 Medium</h4><p>Balanced changes. Recommended default for most drops.</p></div><div class="card red"><h4>🔴 Heavy</h4><p>Maximum variation for stricter retailers.</p></div></div>
+      </section>
+
+      <section class="section searchable" id="license">
+        <div class="mini"># jig-license</div><h2>🔑 Getting a Jig Bot License</h2>
+        <p>Use your issued <code>JCACO-XXXXX</code> style license key to unlock the Jig Bot. Keep the key private and open a ticket if activation fails.</p>
+        <div class="demo" data-demo="license"><div class="demo-head"><span>Interactive demo — License activation</span><span class="demo-count">1 / 3</span></div><div class="demo-body"></div><div class="demo-foot"><button data-prev>← Prev</button><div class="dots"></div><button data-next>Next →</button></div></div>
+      </section>
+
+      <section class="section searchable" id="invoices">
+        <div class="mini"># paying-invoices</div><h2>💳 PAS Invoices</h2>
+        <p>After a successful checkout, members receive a PAS invoice via DM. Pay by the stated deadline using the payment details provided by staff.</p>
+        <div class="table-wrap"><table><thead><tr><th>Item</th><th>Amount</th></tr></thead><tbody><tr><td>Resale value</td><td>£120.00</td></tr><tr><td>Retail price paid</td><td>£69.99</td></tr><tr><td>Profit</td><td>£50.01</td></tr><tr><td>PAS rate</td><td>25%</td></tr><tr><td>You owe JC's ACO</td><td><strong>£12.50</strong></td></tr></tbody></table></div>
+      </section>
+
+      <section class="section searchable" id="faq">
+        <div class="mini"># frequently-asked</div><h2>❓ FAQ</h2>
+        <details><summary>What if I use the wrong CSV format?</summary><div class="answer">The submission bot should validate your upload and explain the exact row, column and value that needs fixing.</div></details>
+        <details><summary>Can I update my CSV after opting in?</summary><div class="answer">Yes. Upload the corrected CSV before the deadline and opt in again if staff require it.</div></details>
+        <details><summary>Should I jig my CSV before uploading?</summary><div class="answer">Yes, if you have a Jig Bot license. Upload the final jigged output file to the submission bot.</div></details>
+        <details><summary>My CSV will not upload — what should I check?</summary><div class="answer">Check the file is a CSV, the headers match the template exactly, there are no blank headers, and required fields are filled.</div></details>
+        <details><summary>Is card data safe?</summary><div class="answer">Only use the official bot DM and never upload CSVs publicly. Do not put real card CSVs into GitHub or any public website.</div></details>
+      </section>
+    </main>
+  </div>
+
+  <footer class="wrap footer">© <span id="year"></span> JC's ACO · Static documentation page for GitHub Pages.</footer>
+
+<script>
+const demos={
+ upload:[['Open the bot DM','Message the official submission bot to start.','<div class="bot"><b>JC\'s Submission Bot</b><br>Welcome. Use the buttons to manage your CSVs.</div>'],['Manage CSVs','Open your CSV library and choose one of your available slots.','<div class="bot"><b>Your CSV Library</b><br>Slot 1: Valid CSV<br>Slot 2: Empty<br>Slot 3: Empty</div>'],['Upload the file','Attach your completed .csv file directly in the DM.','<div class="bot"><b>Validating…</b><br>Checking headers, required fields and values.</div>'],['Validation result','The bot confirms success or explains exactly what to fix.','<div class="bot success"><b>CSV Validated Successfully</b><br>Format: Hidden<br>Profiles: 5<br>Saved to Slot 2</div>']],
+ optin:[['Drop announced','Staff post the product, deadline and required CSV format.','<div class="bot"><b>New Drop</b><br>Format: Hidden CSV<br>Deadline: 23:59 GMT</div>'],['Click Opt In','Press the Opt In button on the announcement.','<div class="bot"><b>Opt In</b><br>Your saved CSV will be registered for this drop.</div>'],['Confirmation','The bot confirms your selected CSV has been copied to staff.','<div class="bot success"><b>You are opted in</b><br>CSV: Slot 2 · Format: Hidden</div>']],
+ license:[['Open Jig Bot','DM the Jig Bot and choose Activate License.','<div class="bot"><b>Jig Bot</b><br>Activate license to unlock profile jigging.</div>'],['Paste your key','Enter your private JCACO license key.','<div class="bot"><b>Checking license…</b><br>Validating your key.</div>'],['Unlocked','Once valid, upload a CSV and choose a jig level.','<div class="bot success"><b>License activated</b><br>Medium jigging recommended for most drops.</div>']]
+};
+function renderDemo(el,i=0){const key=el.dataset.demo,steps=demos[key];el.dataset.index=i;const [title,text,html]=steps[i];el.querySelector('.demo-count').textContent=(i+1)+' / '+steps.length;el.querySelector('.demo-body').innerHTML='<div class="demo-title">'+title+'</div><p>'+text+'</p><div class="mock">'+html+'</div>';el.querySelector('.dots').innerHTML=steps.map((_,n)=>'<span class="dot '+(n===i?'active':'')+'"></span>').join('');el.querySelector('[data-prev]').disabled=i===0;el.querySelector('[data-next]').disabled=i===steps.length-1;}
+document.querySelectorAll('.demo').forEach(el=>{renderDemo(el);el.querySelector('[data-prev]').onclick=()=>renderDemo(el,Math.max(0,+el.dataset.index-1));el.querySelector('[data-next]').onclick=()=>renderDemo(el,Math.min(demos[el.dataset.demo].length-1,+el.dataset.index+1));});
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById('panel-'+btn.dataset.tab).classList.add('active');}));
+const links=[...document.querySelectorAll('.side a,.nav a')], sections=[...document.querySelectorAll('main .section')];
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}})},{rootMargin:'-35% 0px -55% 0px'});sections.forEach(s=>io.observe(s));
+document.getElementById('search').addEventListener('input',e=>{const q=e.target.value.toLowerCase().trim();sections.forEach(s=>s.classList.toggle('hidden',q&&!s.innerText.toLowerCase().includes(q)));});
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
